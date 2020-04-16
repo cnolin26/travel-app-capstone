@@ -33,19 +33,24 @@ function listening() {
     console.log(`server is running on port: ${port}`);
 }
 
-app.get('/weather-journal-app/website', function(req, res) {
+app.get('/weather-journal-app', function(req, res) {
     res.send(projectData);
 });
 
+console.log("testing...");
 
-app.post('/weather-journal-app/website', addInfo)
+app.post('/post', addInfo);
+
 
 function addInfo(req, res) {
+    console.log("in addInfo");
     let ndata = req.body;
     let nEntry = {
-        temperature: ndata.temp,
-        date: ndata._date,
-        user_resp: ndata.u_resp
+        temperature: temperature,//ndata.temp,
+        date: date,//ndata._date,
+        user_resp: user_resp//ndata.u_resp
     }
     projectData.push(nEntry);
+    res.send(projectData);
+    console.log(projectData);
 }
