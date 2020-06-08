@@ -1,10 +1,23 @@
-# Weather-Journal App Project
+# Project Instructions
 
-## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
+This repo is your starter code for the project. It is the same as the starter code we began with in lesson 2. Install and configure Webpack just as we did in the course. Feel free to refer to the course repo as you build this one, and remember to make frequent commits and to create and merge branches as necessary!
 
-## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+The goal of this project is to give you practice with:
+- Setting up Webpack
+- Sass styles
+- Webpack Loaders and Plugins
+- Creating layouts and page design
+- Service workers
+- Using APIs and creating requests to external urls
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+On top of that, I want to introduce you to the topic of Natural Language Processing. NLPs leverage machine learning and deep learning create a program that can interpret natural human speech. Systems like Alexa, Google Assistant, and many voice interaction programs are well known to us, but understanding human speech is an incredibly difficult task and requires a lot of resources to achieve. Full disclosure, this is the Wikipedia definition, but I found it to be a clear one:
+
+> Natural language processing (NLP) is a subfield of computer science, information engineering, and artificial intelligence
+concerned with the interactions between computers and human (natural) languages, in particular how to program computers to
+process and analyze large amounts of natural language data.
+
+You could spend years and get a masters degree focusing on the details of creating NLP systems and algorithms. Typically, NLP programs require far more resources than individuals have access to, but a fairly new API called Aylien has put a public facing API in front of their NLP system. We will use it in this project to determine various attributes of an article or blog post.
+
+## Content
+
+Code that takes a user-input url and sends it to a NLP then populates the returned info on the page.
