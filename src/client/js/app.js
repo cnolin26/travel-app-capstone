@@ -1,8 +1,10 @@
 /* Global Variables */
 
-const api_key = '&appid=08ca1ff33ce4bb1e3f625332f2411fec';
-let base_url = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-let imp_units = '&units=imperial';
+const base_url = 'http://api.geonames.org/searchJSON?q=';
+let loc_name = '';
+const api_uname = '&maxRows=1&username=cnolin26';
+
+
 
 document.getElementById('generate').addEventListener('click', p_action);
 
@@ -12,8 +14,8 @@ let m = d.getMonth() +1
 let newDate = m+'/'+ d.getDate()+'/'+ d.getFullYear();
                               
 // fetch GET request to api
-const getWeather = async (base_url, zipc, api_key)=>{
-    const res = await fetch(base_url+zipc+api_key+imp_units)
+const getWeather = async (base_url, loc_name, api_uname)=>{
+    const res = await fetch(base_url+loc_name+api_uname)
     try{
         const data = await res.json();
         return data;        
@@ -47,8 +49,8 @@ const updatePage = async () => {
   try{
     const allData = await request.json();
     document.getElementById('date').innerHTML = "The date today is: " +allData.date;
-    document.getElementById('temp').innerHTML = `Today's temperature is: ${allData.temperature}F`;
-    document.getElementById('content').innerHTML = `Your feelings: ${allData.user_resp}`;
+    document.getElementById('temp').innerHTML = `Your city's longitude is: ${allData.lng}`;
+    document.getElementById('content').innerHTML = `Your city's latitude is: ${allData.lat}`;
 
   }catch(error){
     console.log("error", error);
@@ -57,9 +59,8 @@ const updatePage = async () => {
 
 
 function p_action(e){
-    let z = document.getElementById('zip').value;
-    let zipc = z + ',us';
-    getWeather(base_url, zipc, api_key)
+    let loc = document.getElementById('loc_input').value;
+    getWeather(base_url, loc, api_key)
     .then(function(data){
         const u_resp = document.getElementById('feelings').value;
         postData('/weather', {temperature: data.main.temp, date: newDate, user_resp: u_resp});

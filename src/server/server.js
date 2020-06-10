@@ -64,9 +64,9 @@ function check(req, res) {
 
 function addInfo(req, res) {
     let ndata = req.body;
-    projectData.temperature = ndata.temperature;
+    projectData.lng = ndata.lng;
     projectData.date = ndata.date;
-    projectData.user_resp = ndata.user_resp;
+    projectData.lat = ndata.lat;
     //serialization: turn json into a string
     res.send(JSON.stringify(projectData));
 }
