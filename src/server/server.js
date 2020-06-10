@@ -45,7 +45,7 @@ app.use(express.static('dist')); //middleware for get? // https://expressjs.com/
 
 // Setup Server
 
-const port = 3002;
+const port = 3024;
 
 const server = app.listen(port, function () {
     console.log(`server is running on port: ${port}`);
@@ -54,20 +54,18 @@ const server = app.listen(port, function () {
 
 app.get('/all', function (req, res) {
     console.log("In check");
-    console.log("req in check: ",req);
-    console.log("res in check: ",res);
-    console.log("projectData in check: ", projectData);
+    console.log("projectData in get: ", projectData);
     res.send(projectData);
 })
 
 
 console.log("Before app.post");
 app.post('/weather', function (req, res) {
-    console.log("In addInfo");
     let ndata = req.body;
-    projectData.lng = ndata.lng;
+    console.log("ndata: ",ndata);
+    projectData.lng = ndata.longitude;
     projectData.date = ndata.date;
-    projectData.lat = ndata.lat;
+    projectData.lat = ndata.latitude;
     //serialization: turn json into a string
     res.send(JSON.stringify(projectData));
 })

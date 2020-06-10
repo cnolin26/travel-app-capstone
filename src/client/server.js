@@ -1,6 +1,8 @@
 import { urlValid } from './js/urlValid'
 import { handleSubmit } from './js/formHandler'
+
 import { p_action } from './js/p_action'
+import { setCountdown } from './js/setCountdown'
 import { getLocation } from './js/getLocation'
 import { postData } from './js/postData'
 import { updatePage } from './js/updatePage'
@@ -16,6 +18,7 @@ export {
     urlValid,
     handleSubmit,
     p_action,
+    setCountdown,
     getLocation,
     postData,
     updatePage
