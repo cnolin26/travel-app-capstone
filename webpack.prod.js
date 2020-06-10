@@ -8,7 +8,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 const aylien = require("aylien_textapi");
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: './src/client/server.js',
     mode: 'production',
     output: {
         libraryTarget: 'var',

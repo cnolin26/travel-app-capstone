@@ -40,38 +40,38 @@ app.use(bodyParser.json());
 app.use(cors()); // will return a middleware function; can only make request to your origin
 
 // Initialize the main project folder
-app.use(express.static('website')); //middleware for get? // https://expressjs.com/en/starter/static-files.html
+app.use(express.static('dist')); //middleware for get? // https://expressjs.com/en/starter/static-files.html
 
 
 // Setup Server
 
-const port = 3000;
+const port = 3002;
 
-const server = app.listen(port, listening);
-
-function listening() {
+const server = app.listen(port, function () {
     console.log(`server is running on port: ${port}`);
-}
+})
 
 
-app.get('/all', check)
-
-function check(req, res) {
+app.get('/all', function (req, res) {
+    console.log("In check");
+    console.log("req in check: ",req);
+    console.log("res in check: ",res);
+    console.log("projectData in check: ", projectData);
     res.send(projectData);
-}
+})
 
 
-
-function addInfo(req, res) {
+console.log("Before app.post");
+app.post('/weather', function (req, res) {
+    console.log("In addInfo");
     let ndata = req.body;
     projectData.lng = ndata.lng;
     projectData.date = ndata.date;
     projectData.lat = ndata.lat;
     //serialization: turn json into a string
     res.send(JSON.stringify(projectData));
-}
+})
 
-app.post('/weather', addInfo)
 
 app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")

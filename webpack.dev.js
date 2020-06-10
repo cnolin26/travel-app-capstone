@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const aylien = require("aylien_textapi");
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: './src/client/server.js',
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
