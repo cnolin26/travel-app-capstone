@@ -45,7 +45,7 @@ app.use(express.static('dist')); //middleware for get? // https://expressjs.com/
 
 // Setup Server
 
-const port = 3024;
+const port = 3053;
 
 const server = app.listen(port, function () {
     console.log(`server is running on port: ${port}`);
@@ -59,10 +59,10 @@ app.get('/all', function (req, res) {
 })
 
 
-console.log("Before app.post");
-app.post('/weather', function (req, res) {
+console.log("Before location app.post");
+app.post('/location', function (req, res) {
     let ndata = req.body;
-    console.log("ndata: ",ndata);
+    console.log("postData's ndata: ",ndata);
     projectData.lng = ndata.longitude;
     projectData.date = ndata.date;
     projectData.lat = ndata.latitude;
@@ -70,6 +70,13 @@ app.post('/weather', function (req, res) {
     res.send(JSON.stringify(projectData));
 })
 
+console.log("Before weatherData app.post");
+app.post('/weatherData', function(req, res) {
+    let wdata = req.body;
+    console.log("weatherData's wdata: ",wdata);
+    projectData.city_name = wdata.city_name;
+    res.send(JSON.stringify(projectData));
+})
 
 app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")

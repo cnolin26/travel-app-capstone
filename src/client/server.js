@@ -6,6 +6,8 @@ import { setCountdown } from './js/setCountdown'
 import { getLocation } from './js/getLocation'
 import { postData } from './js/postData'
 import { updatePage } from './js/updatePage'
+import { getWeather } from './js/getWeather'
+import { postWeather } from './js/postWeather'
 
 import './styles/style.scss'
 import './styles/resets.scss'
@@ -21,5 +23,7 @@ export {
     setCountdown,
     getLocation,
     postData,
-    updatePage
+    updatePage,
+    getWeather,
+    postWeather
 }

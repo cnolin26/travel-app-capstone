@@ -6,10 +6,12 @@ function setCountdown(date) {
     const secondDate = new Date(date);
     console.log("firstDate: ",firstDate);
     const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
-    console.log("diffDays: ",diffDays)
-    document.getElementById('countdowndays').innerHTML = "<h3>"+diffDays+"</h3>";
-    /*document.getElementById('temp').innerHTML = `Your city's longitude is: ${allData.lng}`;
-    document.getElementById('content').innerHTML = `Your city's latitude is: ${allData.lat}`; */
+    console.log("diffDays: ",diffDays);
+    if(diffDays < 17){
+        document.getElementById('countdowndays').innerHTML = "<h3>"+diffDays+"</h3>";
+    }else {
+        document.getElementById('results').innerHTML = "<h3>I'm sorry, no forecast is available more than 16 days in the future</h3>";
+    }
     
 }
 
