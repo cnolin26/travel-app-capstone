@@ -89,6 +89,34 @@ textarea{
     font-family: 'Oswald', sans-serif;
     height: 100px;
 }
+
+.r_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.results {
+    padding: 20px;
+    align-self: center;
+}
+
+.countdowndays {
+    padding: 20px;
+    font-size: 22px;
+}
+
+.forecast {
+    padding: 20px;
+}
+
+.pic {
+    flex-grow: 2;
+    padding: 20px;
+}
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
