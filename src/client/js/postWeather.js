@@ -1,7 +1,6 @@
 // fetch POST
 const postWeather = async(url='', data)=>{
     console.log("In postWeather");
-    console.log("postWeather's data: ",data);
     const response = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',

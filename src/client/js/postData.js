@@ -13,7 +13,6 @@ const postData = async(url='', data)=>{
     try{
         const newData = await response.json();
         console.log("postData's newData: ",newData);
-        console.log("postData's newData.lng: ",newData.lng);
         return newData;
     }catch(error){
         console.log(`Try error: ${error}`);

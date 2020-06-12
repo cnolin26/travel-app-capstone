@@ -45,7 +45,7 @@ app.use(express.static('dist')); //middleware for get? // https://expressjs.com/
 
 // Setup Server
 
-const port = 3082;
+const port = 3090;
 
 const server = app.listen(port, function () {
     console.log(`server is running on port: ${port}`);
@@ -66,6 +66,7 @@ app.post('/location', function (req, res) {
     projectData.lng = ndata.longitude;
     projectData.date = ndata.date;
     projectData.lat = ndata.latitude;
+    projectData.city_name = ndata.city_name;
     //serialization: turn json into a string
     res.send(JSON.stringify(projectData));
 })
@@ -74,7 +75,10 @@ console.log("Before weatherData app.post");
 app.post('/weatherData', function(req, res) {
     let wdata = req.body;
     console.log("weatherData's wdata: ",wdata);
-    projectData.city_name = wdata.city_name;
+    projectData.high_temp = wdata.high_temp;
+    projectData.low_temp = wdata.low_temp;
+    projectData.clouds = wdata.clouds;
+    projectData.precip = wdata.precip;
     res.send(JSON.stringify(projectData));
 })
 
