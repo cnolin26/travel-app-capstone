@@ -20,7 +20,7 @@ async function p_action(e){
     .then(async function(data){
         console.log("setCountdown is async?");
         console.log("setCountdown data: ", data);
-        days_n = data;
+        days_n = data + 1;
     });
     
     await Client.getLocation(base_url, loc_name, api_uname)
@@ -41,7 +41,7 @@ async function p_action(e){
     /*'https://api.weatherbit.io/v2.0/forecast/daily?lat=38.123&lon=-78.543&units=I&days=1&key=00118caaa5884d5897d7035c1a72470e'*/
     ).then(async function(data){
         console.log("data3 for second post: ", data);
-        let f_day = days_n -1;
+        let f_day = days_n - 1;
         let data3 = data.data[f_day];
         console.log("f_day: ", f_day);
         console.log("data.data[f_day]: ", data.data[f_day]);

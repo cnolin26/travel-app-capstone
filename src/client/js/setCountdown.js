@@ -5,9 +5,12 @@ const setCountdown = async (date) =>{
     let tday = new Date();
     const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
     const firstDate = new Date(tday);
-    const secondDate = new Date(date);
-    console.log("firstDate: ",firstDate);
-    const diffDays = (Math.round(Math.abs((firstDate - secondDate) / oneDay))) + 1;
+    console.log("firstDate: ", firstDate);
+    let secondDate = new Date(date);
+    let fixed_date = new Date( secondDate.getTime() + Math.abs(secondDate.getTimezoneOffset()*60000));
+    console.log("secondDate: ",secondDate);
+    console.log("fixed_date: ",fixed_date);
+    const diffDays = Math.ceil(Math.abs((firstDate - fixed_date) / oneDay));
     console.log("diffDays: ",diffDays);
     if(diffDays < 17){
         document.getElementById('countdowndays').innerHTML = "<h3>"+diffDays+"</h3>";
