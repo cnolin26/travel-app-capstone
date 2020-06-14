@@ -45,7 +45,7 @@ app.use(express.static('dist')); //middleware for get? // https://expressjs.com/
 
 // Setup Server
 
-const port = 3101;
+const port = 3117;
 
 const server = app.listen(port, function () {
     console.log(`server is running on port: ${port}`);
