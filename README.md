@@ -1,23 +1,22 @@
-# Project Instructions
+# Travel App
 
-This repo is your starter code for the project. It is the same as the starter code we began with in lesson 2. Install and configure Webpack just as we did in the course. Feel free to refer to the course repo as you build this one, and remember to make frequent commits and to create and merge branches as necessary!
+# Description
 
-The goal of this project is to give you practice with:
-- Setting up Webpack
-- Sass styles
-- Webpack Loaders and Plugins
-- Creating layouts and page design
-- Service workers
-- Using APIs and creating requests to external urls
+This asks for a location and date.  It returns the weather for that location on that date, as well as a photo of the location, and some info about the country the location is in.
 
-On top of that, I want to introduce you to the topic of Natural Language Processing. NLPs leverage machine learning and deep learning create a program that can interpret natural human speech. Systems like Alexa, Google Assistant, and many voice interaction programs are well known to us, but understanding human speech is an incredibly difficult task and requires a lot of resources to achieve. Full disclosure, this is the Wikipedia definition, but I found it to be a clear one:
+## Usage
 
-> Natural language processing (NLP) is a subfield of computer science, information engineering, and artificial intelligence
-concerned with the interactions between computers and human (natural) languages, in particular how to program computers to
-process and analyze large amounts of natural language data.
+If Provo and 06/16/2020 are input, you should receive:
 
-You could spend years and get a masters degree focusing on the details of creating NLP systems and algorithms. Typically, NLP programs require far more resources than individuals have access to, but a fairly new API called Aylien has put a public facing API in front of their NLP system. We will use it in this project to determine various attributes of an article or blog post.
+`Days until trip begins:
+2
+The 2020-06-17 forecast for Provo is cloud coverage of 31% of the sky, a high of 64.5F with a low of 52.6F, and 0mm of rain.
+Country: United States of America
 
-## Content
+Population: 323947000
 
-Code that takes a user-input url and sends it to a NLP then populates the returned info on the page.
+Capital: Washington, D.C.
+`
+ plus the image at https://pixabay.com/get/54e7d0434252af14f1dc84609629307e1038d7e3544c704c7c2d79d1954dc358_640.jpg should be displayed.
+ 
+ 
