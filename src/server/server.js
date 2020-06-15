@@ -45,7 +45,7 @@ app.use(express.static('dist')); //middleware for get? // https://expressjs.com/
 
 // Setup Server
 
-const port = 3139;
+const port = 3154;
 
 const server = app.listen(port, function () {
     console.log(`server is running on port: ${port}`);
@@ -67,6 +67,7 @@ app.post('/location', function (req, res) {
     projectData.date = ndata.date;
     projectData.lat = ndata.latitude;
     projectData.city_name = ndata.city_name;
+    projectData.country_name = ndata.countryName;
     //serialization: turn json into a string
     res.send(JSON.stringify(projectData));
 })
@@ -87,6 +88,15 @@ app.post('/image', function(req, res) {
     let idata = req.body;
     console.log("server image post idata: ",idata);
     projectData.i_url = idata.image_url;
+    res.send(JSON.stringify(projectData));
+})
+
+console.log("Before country app.post");
+app.post('/country', function(req, res){
+    let cdata = req.body;
+    console.log("country app.post cdata: ", cdata);
+    projectData.population = cdata.population;
+    projectData.capital = cdata.capital;
     res.send(JSON.stringify(projectData));
 })
 

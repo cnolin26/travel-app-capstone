@@ -10,6 +10,8 @@ import { getWeather } from './js/getWeather'
 import { postWeather } from './js/postWeather'
 import { getImage } from './js/getImage'
 import { postImage } from './js/postImage'
+import { getCountry } from './js/getCountry'
+import { postCountry } from './js/postCountry'
 
 import './styles/style.scss'
 import './styles/resets.scss'
@@ -29,5 +31,7 @@ export {
     getWeather,
     postWeather,
     getImage,
-    postImage
+    postImage,
+    getCountry,
+    postCountry
 }

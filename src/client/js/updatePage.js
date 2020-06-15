@@ -7,6 +7,10 @@ const updatePage = async () => {
         `<h2>The ${allData.date} forecast for ${allData.city_name} is cloud coverage of ${allData.clouds}% of the sky, a high of ${allData.high_temp}F with a low of ${allData.low_temp}F, and ${allData.precip}mm of rain.</h2>`;
     document.getElementById('pic').innerHTML = 
         `<hr><img src="${allData.i_url}" alt="Image missing">`;
+    document.getElementById('c_info').innerHTML =
+        `<p>Country: ${allData.country_name}</p>
+         <p>Population: ${allData.population}</p>
+         <p>Capital: ${allData.capital}</p>`;
 
   }catch(error){
     console.log("error", error);

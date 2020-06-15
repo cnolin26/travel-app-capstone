@@ -18,6 +18,9 @@ async function p_action(e){
     const pixelbay_base_url = 'https://pixabay.com/api/?key=17057967-544c7ba6cb6d431919c726302&q=';
     const pb_api2 = '&image_type=photo';
     
+    const country_base_api = 'https://restcountries.eu/rest/v2/name/';
+    let country_name = '';
+    
     
     await Client.setCountdown(loc_date)
     .then(async function(data){
@@ -33,8 +36,25 @@ async function p_action(e){
         console.log("geo_ar.lng: ", geo_ar.lng);
         city_lat = geo_ar.lat;
         city_lng = geo_ar.lng;
-        await Client.postData('/location', {longitude: geo_ar.lng, date: loc_date, latitude: geo_ar.lat, city_name: loc_name});
+        country_name = geo_ar.countryName;
+        console.log("country_name: ", country_name);
+        if(country_name === 'United States'){
+            country_name = 'United States of America';
+        }
+        console.log("country_name: ", country_name);
+        await Client.postData('/location', {longitude: geo_ar.lng, date: loc_date, latitude: geo_ar.lat, city_name: loc_name, countryName: country_name});
     });
+    
+    await Client.getCountry(country_base_api+country_name)
+    .then(async function(data){
+        console.log("in getCountry");
+        let url = country_base_api + country_name;
+        console.log("country url: ", url);
+        console.log("getCountry data: ", data);
+        console.log("getCountry data.capital: ", data.capital);
+        console.log("getCountry data.population: ", data.population);
+        await Client.postCountry('/country', {capital: data.capital, population: data.population});
+    })
     
     await Client.getImage(pixelbay_base_url+loc_name+pb_api2)
     .then(async function(data) {

@@ -26,7 +26,7 @@
                 
                 <form id="loc_form" onsubmit="return Client.p_action(event)">
                     <label>What city are you traveling to?<br>
-                        <input id="loc_input" type="text" name="input" value="Provo" placeholder="Provo"></label>
+                        <input id="loc_input" type="text" name="input" value="" placeholder="Provo, UT"></label>
                     <label>When will you go?<br>
                         <input id="date_input" type="date" name="input" value="" ></label>
                     <input type="submit" name="" value="submit" onclick="return Client.p_action(event)" onsubmit="return Client.p_action(event)">
@@ -44,6 +44,8 @@
                     <div class="buffer">
                     </div>
                     <div id="forecast" class="forecast">
+                    </div>
+                    <div id="c_info">
                     </div>
                     <div class="pic" id="pic">
                     </div>
