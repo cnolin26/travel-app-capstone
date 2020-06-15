@@ -8,6 +8,8 @@ import { postData } from './js/postData'
 import { updatePage } from './js/updatePage'
 import { getWeather } from './js/getWeather'
 import { postWeather } from './js/postWeather'
+import { getImage } from './js/getImage'
+import { postImage } from './js/postImage'
 
 import './styles/style.scss'
 import './styles/resets.scss'
@@ -25,5 +27,7 @@ export {
     postData,
     updatePage,
     getWeather,
-    postWeather
+    postWeather,
+    getImage,
+    postImage
 }

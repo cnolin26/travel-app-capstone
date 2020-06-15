@@ -15,6 +15,9 @@ async function p_action(e){
     let city_lng = '';
     let city_lat = '';
     
+    const pixelbay_base_url = 'https://pixabay.com/api/?key=17057967-544c7ba6cb6d431919c726302&q=';
+    const pb_api2 = '&image_type=photo';
+    
     
     await Client.setCountdown(loc_date)
     .then(async function(data){
@@ -33,6 +36,13 @@ async function p_action(e){
         await Client.postData('/location', {longitude: geo_ar.lng, date: loc_date, latitude: geo_ar.lat, city_name: loc_name});
     });
     
+    await Client.getImage(pixelbay_base_url+loc_name+pb_api2)
+    .then(async function(data) {
+        console.log("in getImage");
+        let url = pixelbay_base_url+loc_name+pb_api2;
+        console.log("getImage data.webformatURL: ", data.webformatURL);
+        Client.postImage('/image', {image_url: data.webformatURL})
+    });
     
     let coors = `?&lat=${city_lat}&lon=${city_lng}`;
     let api_ = wbase_url+coors+units+days_n+wapi_;

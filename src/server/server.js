@@ -45,7 +45,7 @@ app.use(express.static('dist')); //middleware for get? // https://expressjs.com/
 
 // Setup Server
 
-const port = 3127;
+const port = 3139;
 
 const server = app.listen(port, function () {
     console.log(`server is running on port: ${port}`);
@@ -79,6 +79,14 @@ app.post('/weatherData', function(req, res) {
     projectData.low_temp = wdata.low_temp;
     projectData.clouds = wdata.clouds;
     projectData.precip = wdata.precip;
+    res.send(JSON.stringify(projectData));
+})
+
+console.log("Before image app.post");
+app.post('/image', function(req, res) {
+    let idata = req.body;
+    console.log("server image post idata: ",idata);
+    projectData.i_url = idata.image_url;
     res.send(JSON.stringify(projectData));
 })
 
