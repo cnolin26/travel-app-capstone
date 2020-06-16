@@ -123,6 +123,11 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+    
+}
+
+input[type=submit]:hover {
+    background-color: yellow;
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
