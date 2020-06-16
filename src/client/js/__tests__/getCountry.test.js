@@ -1,5 +1,5 @@
-const sum = require('./getCountry');
+const sum = require('./getCountry.test.js');
 
-test('user submits London and gets United Kingdom', () => {
-  expect(getCountry("London")).toBe("United Kingdom of Great Britain and Northern Ireland");
+test('user submits Toronto and gets Canada', () => {
+  expect(getCountry("Toronto")).toBe("Canada");
 });
