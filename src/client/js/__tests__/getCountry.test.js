@@ -1,5 +1,5 @@
-const sum = require('./getCountry.test.js');
-
-test('user submits Toronto and gets Canada', () => {
-  expect(getCountry("Toronto")).toBe("Canada");
+import {getCountry} from '../getCountry.js'
+const expected = ['name: Canada'];
+test('user submits Canada and gets array of info on Canada', () => {
+  expect(getCountry("https://restcountries.eu/rest/v2/name/Canada")).toEqual(expect.arrayContaining([{"name": "Canada"}]));
 });
